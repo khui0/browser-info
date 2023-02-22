@@ -1,7 +1,6 @@
 document.body.style.fontFamily = "monospace";
 
 update();
-document.addEventListener("click", update);
 window.addEventListener("resize", update);
 setInterval(update, 1000);
 
@@ -10,7 +9,7 @@ function update() {
     const data = [
         new Date(),
         navigator.userAgent,
-        `Screen: ${window.screen.width}, ${window.screen.width}`,
+        `Screen: ${window.screen.width}, ${window.screen.height}`,
         `Viewport: ${window.innerWidth}, ${window.innerHeight}`,
         document.documentElement.outerHTML,
     ]
