@@ -5,11 +5,11 @@ window.addEventListener("resize", update);
 setInterval(update, 1000);
 
 document.addEventListener("click", e => {
-    // navigator.clipboard.writeText(getText());
-    document.querySelectorAll("script~:not(script)").forEach(element => {
-        element.remove();
-    });
-    update();
+    navigator.clipboard.writeText(getText());
+    // document.querySelectorAll("script~:not(script)").forEach(element => {
+    //     element.remove();
+    // });
+    // update();
 });
 
 function update() {
