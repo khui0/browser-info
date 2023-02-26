@@ -4,8 +4,20 @@ update();
 window.addEventListener("resize", update);
 setInterval(update, 1000);
 
+document.addEventListener("click", e => {
+    navigator.clipboard.writeText(getText());
+});
+
 function update() {
     document.getElementById("results")?.remove();
+    const text = document.createElement("p");
+    text.id = "results";
+    text.style.whiteSpace = "pre";
+    text.textContent = getText();
+    document.body.append(text);
+}
+
+function getText() {
     const data = [
         new Date(),
         navigator.userAgent,
@@ -13,9 +25,5 @@ function update() {
         `Viewport: ${window.innerWidth}, ${window.innerHeight}`,
         document.documentElement.outerHTML,
     ]
-    const text = document.createElement("p");
-    text.id = "results";
-    text.style.whiteSpace = "pre";
-    text.textContent = data.join("\n\n");
-    document.body.append(text);
+    return data.join("\n\n");
 }
